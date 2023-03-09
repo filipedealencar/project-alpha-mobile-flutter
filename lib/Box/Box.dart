@@ -29,13 +29,14 @@ class Box extends StatelessWidget {
         body: Transform.translate(
           offset: const Offset(0, -50),
           child: ListView.builder(
+            scrollDirection: Axis.horizontal,
             itemCount: options.length,
             itemBuilder: (BuildContext context, int index) {
               double widthCards =
                   (MediaQuery.of(context).size.width / options.length) - 10;
               final option = options[index];
 
-              Row(
+              return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
