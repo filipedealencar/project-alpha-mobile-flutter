@@ -28,68 +28,76 @@ class Box extends StatelessWidget {
       home: Scaffold(
         body: Transform.translate(
           offset: const Offset(0, -50),
-          child: ListView.builder(
+          child: Center(
+              child: ListView.builder(
             scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
             itemCount: options.length,
             itemBuilder: (BuildContext context, int index) {
               double widthCards =
-                  (MediaQuery.of(context).size.width / options.length) - 10;
+                  ((MediaQuery.of(context).size.width / options.length) -
+                      (5 * options.length));
               final option = options[index];
-
               return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: widthCards,
-                      height: 100,
-                      margin: const EdgeInsets.only(left: 5),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                            color: const Color.fromRGBO(2, 174, 129, 1),
-                            width: 3),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Center(
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Center(
-                                  child: Text.rich(
-                                textAlign: TextAlign.left,
-                                TextSpan(
-                                  text: formatCurrency(
-                                      option.symbol, option.value),
-                                  style: const TextStyle(
-                                    fontFamily: 'MontSerrat',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12.0,
-                                    color: Color.fromRGBO(2, 174, 129, 1),
-                                  ),
-                                ),
-                                // const WidgetSpan(
-                                //   child: SizedBox(width: 100),
-                                // ),
-                              )),
-                              Center(
-                                  child: Text.rich(
-                                TextSpan(
-                                    text: option.title,
+                    InkWell(
+                      onTap: () {
+                        // Do something when component is tapped
+                      },
+                      child: Container(
+                        width: widthCards,
+                        height: 100,
+                        margin: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 152, 177, 170),
+                              width: 3),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Center(
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Center(
+                                    child: Text.rich(
+                                  textAlign: TextAlign.center,
+                                  TextSpan(
+                                    text: formatCurrency(
+                                        option.symbol, option.value),
                                     style: const TextStyle(
-                                      fontSize: 14,
                                       fontFamily: 'MontSerrat',
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                    )),
-                              )),
-                            ]),
+                                      fontSize: 12.0,
+                                      color: Color.fromRGBO(2, 174, 129, 1),
+                                    ),
+                                  ),
+                                  // const WidgetSpan(
+                                  //   child: SizedBox(width: 100),
+                                  // ),
+                                )),
+                                Center(
+                                    child: Text.rich(
+                                  textAlign: TextAlign.center,
+                                  TextSpan(
+                                      text: option.title,
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        fontFamily: 'MontSerrat',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      )),
+                                )),
+                              ]),
+                        ),
                       ),
-                    ),
+                    )
                   ]);
             },
-          ),
+          )),
         ),
       ),
     );
