@@ -16,14 +16,11 @@ Future<void> loadFont() async {
 }
 
 class Header extends StatelessWidget {
-  final double salaryReceived;
+  final double mainIcome;
   final int? remainingDay;
   final double? extraIncome;
   const Header(
-      {Key? key,
-      required this.salaryReceived,
-      this.extraIncome,
-      this.remainingDay})
+      {Key? key, required this.mainIcome, this.extraIncome, this.remainingDay})
       : super(key: key);
 
   formatCurrency(String symbol, double currency) {
@@ -52,44 +49,48 @@ class Header extends StatelessWidget {
         ),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Center(
-                child: Text.rich(
-                  TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Salário Recebido',
-                        style: TextStyle(
-                          fontFamily: 'MontSerrat',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12.0,
-                          color: Colors.white,
-                        ),
+              SizedBox(
+                width: 200,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'Renda Principal',
+                      style: TextStyle(
+                        fontFamily: 'MontSerrat',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12.0,
+                        color: Colors.white,
                       ),
-                      const WidgetSpan(
-                        child: SizedBox(width: 25),
+                    ),
+                    // WidgetSpan(
+                    //   child: SizedBox(width: widthCards),
+                    // ),
+                    Text(
+                      formatCurrency("+", mainIcome),
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'MontSerrat',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
-                      TextSpan(
-                        text: formatCurrency("+", salaryReceived),
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontFamily: 'MontSerrat',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
               Center(
                 child: extraIncome != null
-                    ? Text.rich(
-                        TextSpan(
+                    ? SizedBox(
+                        width: 230,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            const TextSpan(
-                              text: 'Renda Extra',
+                            const Text(
+                              'Renda Extra',
                               style: TextStyle(
                                 fontFamily: 'MontSerrat',
                                 fontWeight: FontWeight.bold,
@@ -97,11 +98,11 @@ class Header extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-                            const WidgetSpan(
-                              child: SizedBox(width: 60),
-                            ),
-                            TextSpan(
-                              text: formatCurrency("+", extraIncome ?? 0),
+                            // WidgetSpan(
+                            //   child: SizedBox(width: widthCards),
+                            // ),
+                            Text(
+                              formatCurrency("+", extraIncome ?? 0),
                               style: const TextStyle(
                                 fontSize: 14,
                                 fontFamily: 'MontSerrat',
@@ -126,8 +127,8 @@ class Header extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: formatCurrency(
-                            "", salaryReceived + (extraIncome ?? 0)),
+                        text:
+                            formatCurrency("", mainIcome + (extraIncome ?? 0)),
                         style: const TextStyle(
                           fontSize: 40,
                           fontFamily: 'MontSerrat',
