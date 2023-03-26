@@ -1,13 +1,8 @@
-/// Package import
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-
-/// Chart import
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'model.dart';
 
 Future<void> loadFont() async {
@@ -24,27 +19,31 @@ Color getRandomColor() {
   return Color.fromARGB(255, r, g, b);
 }
 
-// Usage:
+class ListChart {
+  String icon;
+  String title;
+  Color color;
+  double value;
+
+  ListChart(this.icon, this.title, this.color, this.value);
+}
+
 Color myRandomColor = getRandomColor();
 
-/// State class of doughnut series with center elevation.
 class DoughnutDefaultState extends StatelessWidget {
-  const DoughnutDefaultState({super.key});
+  const DoughnutDefaultState({Key? key, required this.options})
+      : super(key: key);
+  final List<ListChart> options;
 
   @override
   Widget build(BuildContext context) {
-    List<ChartSampleData> incomesValues = [
-      ChartSampleData(x: 'A', y: 100, text: "Cartão Inter"),
-      ChartSampleData(x: 'B', y: 1800, text: "Cartão Inter"),
-      ChartSampleData(x: 'C', y: 345, text: "Cartão Inter"),
-      ChartSampleData(x: 'D', y: 690, text: "Cartão Inter"),
-      ChartSampleData(x: 'E', y: 120, text: "Cartão Inter"),
-      ChartSampleData(x: 'F', y: 350, text: "Cartão Inter"),
-      ChartSampleData(x: 'G', y: 430, text: "Cartão Inter"),
-      ChartSampleData(x: 'H', y: 400, text: "Cartão Inter"),
-      ChartSampleData(x: '1', y: 225, text: "Cartão Inter"),
-      ChartSampleData(x: 'J', y: 260, text: "Cartão Inter")
-    ];
+    List<ChartSampleData> incomesValues = options
+        .map((chart) => ChartSampleData(
+            x: chart.title,
+            y: chart.value,
+            text: chart.title,
+            pointColor: chart.color))
+        .toList();
 
     double newValues = 0;
 
@@ -78,7 +77,7 @@ class DoughnutDefaultState extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: const Offset(0, 3), // changes position of shadow
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),
@@ -86,8 +85,6 @@ class DoughnutDefaultState extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.center,
               // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Expanded(
-                //   child:
                 Container(
                   padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
                   alignment: AlignmentDirectional.topStart,
@@ -101,8 +98,6 @@ class DoughnutDefaultState extends StatelessWidget {
                         fontFamily: "MontSerrat"),
                   ),
                 ),
-
-                // ),
                 SfCircularChart(
                   annotations: <CircularChartAnnotation>[
                     CircularChartAnnotation(
@@ -121,71 +116,83 @@ class DoughnutDefaultState extends StatelessWidget {
                       overflowMode: LegendItemOverflowMode.wrap),
                   series: _getElevationDoughnutSeries(incomesValues),
                 ),
-                Wrap(
-                  spacing: 10.0,
-                  runSpacing: 10.0,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                child: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.red,
+                ListView.builder(
+                    // scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemCount: options.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      final option = options[index];
+                      return Wrap(
+                        spacing: 10.0,
+                        runSpacing: 10.0,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          20, 0, 0, 0),
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8),
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: option.color,
+                                        ),
+                                        child: Text(
+                                          option.icon,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  child: const Text(
-                                    "1",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 12,
+                                  Container(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                    child: Text(
+                                      option.title,
+                                      style: const TextStyle(
+                                        fontFamily: 'MontSerrat',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 12.0,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Align(
+                                child: Container(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  child: Text(
+                                    formatCurrency("R\$", option.value),
+                                    style: const TextStyle(
+                                      fontFamily: 'MontSerrat',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12.0,
+                                      color: Colors.black,
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                              child: const Text(
-                                'Cartão de Crédito',
-                                style: TextStyle(
-                                  fontFamily: 'MontSerrat',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Align(
-                          child: Container(
-                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                            child: const Text(
-                              'R\$ 2.560.76',
-                              style: TextStyle(
-                                fontFamily: 'MontSerrat',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12.0,
-                                color: Colors.black,
-                              ),
-                            ),
+                              )
+                            ],
                           ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                Container(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-                    child: const Divider()),
+                          Container(
+                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                              child: index != options.length - 1
+                                  ? const Divider()
+                                  : null),
+                        ],
+                      );
+                    })
               ],
             ),
           ),
@@ -194,7 +201,6 @@ class DoughnutDefaultState extends StatelessWidget {
     );
   }
 
-  /// Returns the doughnut series which need to be center elevation.
   List<DoughnutSeries<ChartSampleData, String>> _getElevationDoughnutSeries(
       List<ChartSampleData> list) {
     return <DoughnutSeries<ChartSampleData, String>>[

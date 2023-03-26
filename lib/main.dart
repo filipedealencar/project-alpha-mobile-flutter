@@ -37,20 +37,20 @@ class MyApp extends StatelessWidget {
                     ],
                   )),
                 ),
-                const SizedBox(
-                    height: 450,
+                SizedBox(
+                    height: 510,
                     child: SizedBox(
                         height: double.infinity,
                         child: DoughnutDefaultState(
-                            // data: [
-                            //   ChartOptions('Shirts', 5),
-                            //   ChartOptions('Cardigans', 20),
-                            //   ChartOptions('Chiffons', 36),
-                            //   ChartOptions('Pants', 10),
-                            //   ChartOptions('Heels', 10),
-                            //   ChartOptions('Socks', 20),
-                            // ],
-                            )))
+                          options: [
+                            ListChart("1", "Cartão Nubank",
+                                Color.fromARGB(255, 161, 3, 161), 335),
+                            ListChart("2", "Cartão Mercado Pago",
+                                Color.fromARGB(255, 20, 193, 236), 229),
+                            ListChart("3", "Cartão Inter",
+                                Color.fromARGB(255, 255, 115, 0), 1200),
+                          ],
+                        )))
               ],
             ),
           ),
