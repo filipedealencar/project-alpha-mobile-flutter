@@ -43,7 +43,7 @@ class Header extends StatelessWidget {
             colors: [
               Color.fromRGBO(3, 155, 145, 1),
               Color.fromRGBO(16, 158, 144, 0.8),
-              Color.fromRGBO(2, 174, 120, 0.6),
+              Color.fromRGBO(1, 138, 94, 0.6),
             ],
           ),
         ),

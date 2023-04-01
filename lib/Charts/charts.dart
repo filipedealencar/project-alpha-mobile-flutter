@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'model.dart';
+
+import 'Components/model/sample_view.dart';
 
 Future<void> loadFont() async {
   await rootBundle
@@ -61,7 +62,7 @@ class DoughnutDefaultState extends StatelessWidget {
 
     return Scaffold(
       body: Transform.translate(
-        offset: const Offset(0, -70),
+        offset: const Offset(0, 0),
         child: ConstrainedBox(
           constraints: const BoxConstraints(
             maxHeight: double.infinity,

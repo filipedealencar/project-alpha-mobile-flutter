@@ -3,6 +3,7 @@ import 'package:flutter_application_1/Box/Box.dart';
 import 'package:flutter_application_1/Header/header.dart';
 
 import 'Charts/charts.dart';
+import 'Charts/pagination.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,6 +18,10 @@ class MyApp extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                const SizedBox(
+                  height: 510,
+                  child: SizedBox(height: double.infinity, child: Pagination()),
+                ),
                 const SizedBox(
                   height: 300,
                   child: Center(
@@ -38,19 +43,21 @@ class MyApp extends StatelessWidget {
                   )),
                 ),
                 SizedBox(
-                    height: 510,
-                    child: SizedBox(
-                        height: double.infinity,
-                        child: DoughnutDefaultState(
-                          options: [
-                            ListChart("1", "Cartão Nubank",
-                                Color.fromARGB(255, 161, 3, 161), 335),
-                            ListChart("2", "Cartão Mercado Pago",
-                                Color.fromARGB(255, 20, 193, 236), 229),
-                            ListChart("3", "Cartão Inter",
-                                Color.fromARGB(255, 255, 115, 0), 1200),
-                          ],
-                        )))
+                  height: 510,
+                  child: SizedBox(
+                    height: double.infinity,
+                    child: DoughnutDefaultState(
+                      options: [
+                        ListChart("1", "Cartão Nubank",
+                            const Color.fromARGB(255, 161, 3, 161), 335),
+                        ListChart("2", "Cartão Mercado Pago",
+                            const Color.fromARGB(255, 20, 193, 236), 229),
+                        ListChart("3", "Cartão Inter",
+                            const Color.fromARGB(255, 255, 115, 0), 1200),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

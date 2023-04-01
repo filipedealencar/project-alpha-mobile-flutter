@@ -26,6 +26,7 @@ class Box extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 68, 68, 63),
         body: Transform.translate(
           offset: const Offset(0, -50),
           child: Center(
@@ -55,7 +56,7 @@ class Box extends StatelessWidget {
                               color: const Color.fromARGB(255, 152, 177, 170),
                               width: 3),
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(30.0),
                         ),
                         child: Center(
                           child: Column(
