@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Dart imports
 import 'dart:async';
 
@@ -63,21 +64,28 @@ class _ProgressBarTrackWithMarkerState extends SampleViewState {
     } else {
       _size = MediaQuery.of(context).size.width / 4.5;
       return Center(
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <
-              Widget>[
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          getProgressBarWithCircle(),
-          const Center(child: Text('Circle marker')),
-        ]),
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          getProgressBarWithRectangle(),
-          const Center(child: Text('Rectangle marker')),
-        ]),
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          getProgressBarWithImage(),
-          const Center(child: Text('Image marker')),
-        ]),
-      ]));
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  getProgressBarWithCircle(),
+                  const Center(child: Text('Circle marker')),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  getProgressBarWithRectangle(),
+                  const Center(child: Text('Rectangle marker')),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  getProgressBarWithImage(),
+                  const Center(child: Text('Image marker')),
+                ]),
+          ]));
     }
   }
 
@@ -131,7 +139,7 @@ class _ProgressBarTrackWithMarkerState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(progressValue.toStringAsFixed(0) + '%'))
+                    widget: Text('${progressValue.toStringAsFixed(0)}%'))
               ]),
         ]));
   }
@@ -180,7 +188,7 @@ class _ProgressBarTrackWithMarkerState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(progressValue.toStringAsFixed(0) + '%'))
+                    widget: Text('${progressValue.toStringAsFixed(0)}%'))
               ]),
         ]));
   }
@@ -230,7 +238,7 @@ class _ProgressBarTrackWithMarkerState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(progressValue.toStringAsFixed(0) + '%'))
+                    widget: Text('${progressValue.toStringAsFixed(0)}%'))
               ]),
         ]));
   }

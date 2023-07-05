@@ -234,9 +234,8 @@ class OrderInfoDataGridSource extends DataGridSource {
         summaryValue = double.parse(summaryValue).toStringAsFixed(2);
       }
 
-      summaryValue = 'Sum: ' +
-          NumberFormat.currency(locale: 'en_US', decimalDigits: 0, symbol: r'$')
-              .format(double.parse(summaryValue));
+      summaryValue =
+          'Sum: ${NumberFormat.currency(locale: 'en_US', decimalDigits: 0, symbol: r'$').format(double.parse(summaryValue))}';
 
       widget = buildCell(
           summaryValue, const EdgeInsets.all(8.0), Alignment.centerRight);

@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Package imports
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,18 @@ class TrendLineDefault extends SampleView {
   _TrendLineDefaultState createState() => _TrendLineDefaultState();
 }
 
-/// State class of default trendline chart.
+/// // ignore_for_file: library_private_types_in_public_apiState class of default trendline chart.
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///// ignore_for_file: library_private_types_in_public_api
+///
 class _TrendLineDefaultState extends SampleViewState {
   _TrendLineDefaultState();
 
@@ -312,7 +324,7 @@ class _TrendLineDefaultState extends SampleViewState {
                     (_displayRSquare != null &&
                             _displayRSquare! &&
                             _type != TrendlineType.movingAverage)
-                        ? Text('R² = ' + _rSquare,
+                        ? Text('R² = $_rSquare',
                             style: TextStyle(color: model.textColor))
                         : const Text('')
                   ]),

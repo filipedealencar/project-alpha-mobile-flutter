@@ -1,10 +1,13 @@
 ///Package import
+// ignore_for_file: unnecessary_null_comparison, constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 /// Collection of left, right or up, down icon buttons with text widget
 class CustomDirectionalButtons extends StatefulWidget {
   /// direction arrows surronding in text widget
   const CustomDirectionalButtons({
+    super.key,
     double this.minValue = 0,
     required double this.maxValue,
     required double this.initialValue,

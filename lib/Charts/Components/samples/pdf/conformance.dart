@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -175,8 +176,8 @@ class _ConformancePdfState extends SampleViewState {
             lineAlignment: PdfVerticalAlignment.bottom));
     //Create data foramt and convert it to text.
     final DateFormat format = DateFormat.yMMMMd('en_US');
-    final String invoiceNumber = 'Invoice Number: 2058557939\r\n\r\nDate: ' +
-        format.format(DateTime.now());
+    final String invoiceNumber =
+        'Invoice Number: 2058557939\r\n\r\nDate: ${format.format(DateTime.now())}';
     final Size contentSize = contentFont.measureString(invoiceNumber);
     const String address =
         'Bill To: \r\n\r\nAbraham Swearegin, \r\n\r\nUnited States, California, San Mateo, \r\n\r\n9920 BridgePointe Parkway, \r\n\r\n9365550136';

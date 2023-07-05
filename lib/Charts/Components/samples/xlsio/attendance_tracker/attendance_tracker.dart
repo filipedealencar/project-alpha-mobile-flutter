@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -63,7 +64,7 @@ class _AttendanceTrackerXlsIOState extends SampleViewState {
     final Worksheet sheet = workbook.worksheets[0];
     final DateTime datetime = DateTime.now().toLocal();
     final DateFormat formatter = DateFormat('MMM');
-    sheet.name = formatter.format(datetime) + '-' + datetime.year.toString();
+    sheet.name = '${formatter.format(datetime)}-${datetime.year}';
 
     // Enable sheet calculation.
     sheet.enableSheetCalculations();

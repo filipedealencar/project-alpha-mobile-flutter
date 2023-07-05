@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -68,13 +69,13 @@ class _MultipleAxisExampleState extends SampleViewState {
             thickness: 3,
           ),
           axisLabelStyle: const GaugeTextStyle(),
-          annotations: <GaugeAnnotation>[
+          annotations: const <GaugeAnnotation>[
             GaugeAnnotation(
                 angle: 90,
                 positionFactor: 1,
                 widget: Row(
                   mainAxisSize: MainAxisSize.min,
-                  children: const <Widget>[
+                  children: <Widget>[
                     Text(
                       '33°C  :',
                       style: TextStyle(

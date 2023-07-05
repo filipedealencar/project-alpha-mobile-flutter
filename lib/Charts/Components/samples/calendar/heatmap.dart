@@ -1,4 +1,6 @@
 ///Package imports
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 
 ///calendar import
@@ -71,9 +73,9 @@ class HeatMapCalendarCalendarState extends SampleViewState {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
+                    children: <Widget>[
                       Text('Less'),
                       Text('More'),
                     ],

@@ -318,7 +318,7 @@ class SampleModel extends Listenable {
   late List<SubItem> searchResults;
 
   /// To handle the search bar
-  SearchBar? searchBar;
+  ChartSearchBar? searchBar;
 
   /// holds theme based current palette color
   Color backgroundColor = const Color.fromRGBO(0, 116, 227, 1);
@@ -599,24 +599,10 @@ Future<void> updateControlItems() async {
                         .sampleIndex ??= thirdLevelSubItems.length - 1;
                     thirdLevelSubItems[thirdLevelSubItems.length - 1].control =
                         controlList[i];
-                    final String breadCrumbText = ('/' +
-                            controlList[i].title! +
-                            '/' +
-                            firstLevelSubItems[j].title! +
-                            '/' +
-                            secondLevelSubItems[secondLevelSubItems.length - 1]
-                                .title! +
-                            (secondLevelSubItems[secondLevelSubItems.length - 1]
-                                        .subItems!
-                                        .length ==
-                                    1
-                                ? ''
-                                : ('/' +
-                                    thirdLevelSubItems[
-                                            thirdLevelSubItems.length - 1]
-                                        .title!)))
-                        .replaceAll(' ', '-')
-                        .toLowerCase();
+                    final String breadCrumbText =
+                        ('/${controlList[i].title!}/${firstLevelSubItems[j].title!}/${secondLevelSubItems[secondLevelSubItems.length - 1].title!}${secondLevelSubItems[secondLevelSubItems.length - 1].subItems!.length == 1 ? '' : ('/${thirdLevelSubItems[thirdLevelSubItems.length - 1].title!}')}')
+                            .replaceAll(' ', '-')
+                            .toLowerCase();
                     thirdLevelSubItems[thirdLevelSubItems.length - 1]
                         .breadCrumbText = breadCrumbText;
                     thirdLevelSubItems[thirdLevelSubItems.length - 1]
@@ -658,25 +644,15 @@ Future<void> updateControlItems() async {
                     String breadCrumbText;
                     if (firstLevelSubItems[j].subItems!.length == 1 &&
                         secondLevelSubItems.length == 1) {
-                      breadCrumbText = ('/' +
-                              controlList[i].title! +
-                              '/' +
-                              secondLevelSubItems[
-                                      secondLevelSubItems.length - 1]
-                                  .title!)
-                          .replaceAll(' ', '-')
-                          .toLowerCase();
+                      breadCrumbText =
+                          ('/${controlList[i].title!}/${secondLevelSubItems[secondLevelSubItems.length - 1].title!}')
+                              .replaceAll(' ', '-')
+                              .toLowerCase();
                     } else {
-                      breadCrumbText = ('/' +
-                              controlList[i].title! +
-                              '/' +
-                              firstLevelSubItems[j].title! +
-                              '/' +
-                              secondLevelSubItems[
-                                      secondLevelSubItems.length - 1]
-                                  .title!)
-                          .replaceAll(' ', '-')
-                          .toLowerCase();
+                      breadCrumbText =
+                          ('/${controlList[i].title!}/${firstLevelSubItems[j].title!}/${secondLevelSubItems[secondLevelSubItems.length - 1].title!}')
+                              .replaceAll(' ', '-')
+                              .toLowerCase();
                     }
 
                     secondLevelSubItems[secondLevelSubItems.length - 1]
@@ -702,12 +678,10 @@ Future<void> updateControlItems() async {
               firstLevelSubItems[j].sampleIndex ??= j;
               if (firstLevelSubItems[j].platformsToHide == null ||
                   _needToShow(firstLevelSubItems[j].platformsToHide)) {
-                final String breadCrumbText = ('/' +
-                        controlList[i].title! +
-                        '/' +
-                        firstLevelSubItems[j].title!)
-                    .replaceAll(' ', '-')
-                    .toLowerCase();
+                final String breadCrumbText =
+                    ('/${controlList[i].title!}/${firstLevelSubItems[j].title!}')
+                        .replaceAll(' ', '-')
+                        .toLowerCase();
                 firstLevelSubItems[j].breadCrumbText = breadCrumbText;
                 firstLevelSubItems[j].control = controlList[i];
                 firstLevelSubItems[j].categoryName =

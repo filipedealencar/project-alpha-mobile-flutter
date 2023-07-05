@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -174,10 +175,7 @@ class _MapsWithLocalizationState extends LocalizationSampleViewState {
                                     ),
                                     const SizedBox(height: 5.0),
                                     Text(
-                                      _australiaData[index]
-                                              .areaInMillionSqKm
-                                              .toString() +
-                                          'M sq. km',
+                                      '${_australiaData[index].areaInMillionSqKm}M sq. km',
                                       textDirection: TextDirection.ltr,
                                       style: _themeData.textTheme.bodySmall!
                                           .copyWith(color: textColor),

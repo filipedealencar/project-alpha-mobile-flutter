@@ -1,4 +1,6 @@
 ///Package import
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -696,12 +698,7 @@ class _DateRangePickerOptionState extends State<_DateRangePickerOption> {
                 _onSelectionChanged(result);
               }
             },
-            child: Text(
-                _date.day.toString() +
-                    '-' +
-                    _date.month.toString() +
-                    '-' +
-                    _date.year.toString(),
+            child: Text('${_date.day}-${_date.month}-${_date.year}',
                 style: TextStyle(
                     fontSize: 15,
                     color: theme.textTheme.titleSmall?.color,

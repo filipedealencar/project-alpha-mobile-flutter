@@ -1,4 +1,6 @@
 ///Package import
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -159,9 +161,9 @@ class _PopUpDatePickerState extends SampleViewState
                         flex: 5,
                         child: Container(
                             padding: const EdgeInsets.all(5),
-                            child: Column(
+                            child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'From',
                                   style: TextStyle(
@@ -180,9 +182,9 @@ class _PopUpDatePickerState extends SampleViewState
                         flex: 5,
                         child: Container(
                             padding: const EdgeInsets.all(5),
-                            child: Column(
+                            child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'Destination',
                                   style: TextStyle(
@@ -337,9 +339,9 @@ class _PopUpDatePickerState extends SampleViewState
                         flex: 5,
                         child: Container(
                             padding: const EdgeInsets.all(5),
-                            child: Column(
+                            child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'Travellers',
                                   style: TextStyle(
@@ -358,9 +360,9 @@ class _PopUpDatePickerState extends SampleViewState
                         flex: 5,
                         child: Container(
                             padding: const EdgeInsets.all(5),
-                            child: Column(
+                            child: const Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 Text(
                                   'Class',
                                   style: TextStyle(
@@ -437,7 +439,11 @@ picker.SfDateRangePicker getPopUpDatePicker() {
 class DateRangePicker extends StatefulWidget {
   /// Creates Date range picker
   const DateRangePicker(this.date, this.range,
-      {this.minDate, this.maxDate, this.displayDate, required this.model});
+      {super.key,
+      this.minDate,
+      this.maxDate,
+      this.displayDate,
+      required this.model});
 
   /// Holds date value
   final dynamic date;
@@ -699,11 +705,7 @@ class _DateRangePickerState extends State<DateRangePicker> {
 
   String getFormattedHijriString(
       HijriDateTime date, SfLocalizations localizations, String monthFormat) {
-    return date.day.toString() +
-        ' ' +
-        getHijriMonthText(date, localizations, monthFormat) +
-        ' ' +
-        date.year.toString();
+    return '${date.day} ${getHijriMonthText(date, localizations, monthFormat)} ${date.year}';
   }
 
   String getHijriMonthText(

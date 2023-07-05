@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///flutter package import
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -115,9 +116,9 @@ class _VerticalRangeSliderIntervalSelectionPageState extends SampleViewState {
           ),
           Padding(
             padding: EdgeInsets.only(bottom: padding / 2),
-            child: Row(
+            child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
+                children: <Widget>[
                   Icon(Icons.lightbulb_outline,
                       color: Colors.orange, size: 24.0),
                   Padding(

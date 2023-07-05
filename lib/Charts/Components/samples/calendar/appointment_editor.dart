@@ -1,4 +1,6 @@
 ///Dart imports
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api, use_key_in_widget_constructors
+
 import 'dart:core';
 import 'dart:math';
 
@@ -580,9 +582,7 @@ String _getAppointmentTimeText(Appointment selectedAppointment) {
         selectedAppointment.startTime, selectedAppointment.endTime)) {
       return DateFormat('EEEE, MMM dd').format(selectedAppointment.startTime);
     }
-    return DateFormat('EEEE, MMM dd').format(selectedAppointment.startTime) +
-        ' - ' +
-        DateFormat('EEEE, MMM dd').format(selectedAppointment.endTime);
+    return '${DateFormat('EEEE, MMM dd').format(selectedAppointment.startTime)} - ${DateFormat('EEEE, MMM dd').format(selectedAppointment.endTime)}';
   } else if (selectedAppointment.startTime.day !=
           selectedAppointment.endTime.day ||
       selectedAppointment.startTime.month !=
@@ -595,15 +595,9 @@ String _getAppointmentTimeText(Appointment selectedAppointment) {
     }
 
     endFormat += ' dd hh:mm a';
-    return DateFormat('EEEE, MMM dd hh:mm a')
-            .format(selectedAppointment.startTime) +
-        ' - ' +
-        DateFormat(endFormat).format(selectedAppointment.endTime);
+    return '${DateFormat('EEEE, MMM dd hh:mm a').format(selectedAppointment.startTime)} - ${DateFormat(endFormat).format(selectedAppointment.endTime)}';
   } else {
-    return DateFormat('EEEE, MMM dd hh:mm a')
-            .format(selectedAppointment.startTime) +
-        ' - ' +
-        DateFormat('hh:mm a').format(selectedAppointment.endTime);
+    return '${DateFormat('EEEE, MMM dd hh:mm a').format(selectedAppointment.startTime)} - ${DateFormat('hh:mm a').format(selectedAppointment.endTime)}';
   }
 }
 
@@ -1243,7 +1237,7 @@ String _getSelectedResourceText(
         .firstWhere(
             (CalendarResource resource) => resource.id == resourceIds[i])
         .displayName;
-    resourceNames = resourceNames == null ? name : resourceNames + ', ' + name;
+    resourceNames = resourceNames == null ? name : '$resourceNames, $name';
   }
 
   return resourceNames!;
@@ -1487,7 +1481,8 @@ class PopUpAppointmentEditor extends StatefulWidget {
       this.colorNames,
       this.selectedAppointment,
       this.timeZoneCollection,
-      this.visibleDates);
+      this.visibleDates,
+      {super.key});
 
   /// Model of appointment editor
   final SampleModel model;
@@ -3703,7 +3698,7 @@ class _AppointmentEditorWebState extends State<AppointmentEditorWeb> {
                           Expanded(
                               child: Container(
                                   padding: const EdgeInsets.only(top: 15),
-                                  child: Text('  ' + _ruleType,
+                                  child: Text('  $_ruleType',
                                       style: TextStyle(
                                           fontSize: 13,
                                           color: defaultTextColor,
@@ -4274,8 +4269,7 @@ class _AppointmentEditorWebState extends State<AppointmentEditorWeb> {
                                                     },
                                                     keyboardType:
                                                         TextInputType.number,
-                                                    inputFormatters: <
-                                                        TextInputFormatter>[
+                                                    inputFormatters: <TextInputFormatter>[
                                                       FilteringTextInputFormatter
                                                           .digitsOnly
                                                     ],
@@ -4533,8 +4527,7 @@ class _AppointmentEditorWebState extends State<AppointmentEditorWeb> {
                                                               keyboardType:
                                                                   TextInputType
                                                                       .number,
-                                                              inputFormatters: <
-                                                                  TextInputFormatter>[
+                                                              inputFormatters: <TextInputFormatter>[
                                                                 FilteringTextInputFormatter
                                                                     .digitsOnly
                                                               ],
@@ -4568,8 +4561,7 @@ class _AppointmentEditorWebState extends State<AppointmentEditorWeb> {
                                                                   crossAxisAlignment:
                                                                       CrossAxisAlignment
                                                                           .end,
-                                                                  children: <
-                                                                      Widget>[
+                                                                  children: <Widget>[
                                                                     IconButton(
                                                                         icon:
                                                                             Icon(
@@ -7339,13 +7331,12 @@ class _CustomRuleState extends State<_CustomRule> {
     _selectedRecurrenceType = _selectedRecurrenceType ?? 'day';
     _dayOfMonth = _startDate.day;
     _dayOfWeek = _startDate.weekday;
-    _monthlyRule = 'Monthly on day ' + _startDate.day.toString() + 'th';
+    _monthlyRule = 'Monthly on day ${_startDate.day}th';
     _endRule = _EndRule.never;
     _month = _startDate.month;
     _weekNumber = _getWeekNumber(_startDate);
-    _weekNumberDay = _weekDayPosition[_weekNumber == -1 ? 4 : _weekNumber - 1] +
-        ' ' +
-        _weekDay[_dayOfWeek - 1];
+    _weekNumberDay =
+        '${_weekDayPosition[_weekNumber == -1 ? 4 : _weekNumber - 1]} ${_weekDay[_dayOfWeek - 1]}';
     if (_days == null) {
       _mobileInitialWeekdays(_startDate.weekday);
     }
@@ -7494,7 +7485,7 @@ class _CustomRuleState extends State<_CustomRule> {
 
   void _monthlyWeek() {
     setState(() {
-      _monthlyRule = 'Monthly on the ' + _weekNumberDay!;
+      _monthlyRule = 'Monthly on the ${_weekNumberDay!}';
       _recurrenceProperties!.week = _weekNumber;
       _recurrenceProperties!.dayOfWeek = _dayOfWeek;
     });
@@ -7502,7 +7493,7 @@ class _CustomRuleState extends State<_CustomRule> {
 
   void _monthlyDay() {
     setState(() {
-      _monthlyRule = 'Monthly on day ' + _startDate.day.toString() + 'th';
+      _monthlyRule = 'Monthly on day ${_startDate.day}th';
       _recurrenceProperties!.dayOfWeek = 0;
       _recurrenceProperties!.week = 0;
       _recurrenceProperties!.dayOfMonth = _dayOfMonth;
@@ -7959,16 +7950,12 @@ class _CustomRuleState extends State<_CustomRule> {
                         value: _monthlyRule,
                         items: <DropdownMenuItem<String>>[
                           DropdownMenuItem<String>(
-                            value: 'Monthly on day ' +
-                                _startDate.day.toString() +
-                                'th',
-                            child: Text('Monthly on day ' +
-                                _startDate.day.toString() +
-                                'th'),
+                            value: 'Monthly on day ${_startDate.day}th',
+                            child: Text('Monthly on day ${_startDate.day}th'),
                           ),
                           DropdownMenuItem<String>(
-                            value: 'Monthly on the ' + _weekNumberDay!,
-                            child: Text('Monthly on the ' + _weekNumberDay!),
+                            value: 'Monthly on the ${_weekNumberDay!}',
+                            child: Text('Monthly on the ${_weekNumberDay!}'),
                           ),
                           const DropdownMenuItem<String>(
                             value: 'Last day of month',
@@ -7977,18 +7964,14 @@ class _CustomRuleState extends State<_CustomRule> {
                         ],
                         onChanged: (String? value) {
                           setState(() {
-                            if (value ==
-                                'Monthly on day ' +
-                                    _startDate.day.toString() +
-                                    'th') {
-                              _width = _textSize('Monthly on day ' +
-                                  _startDate.day.toString() +
-                                  'th');
+                            if (value == 'Monthly on day ${_startDate.day}th') {
+                              _width = _textSize(
+                                  'Monthly on day ${_startDate.day}th');
                               _monthlyDay();
                             } else if (value ==
-                                'Monthly on the ' + _weekNumberDay!) {
+                                'Monthly on the ${_weekNumberDay!}') {
                               _width = _textSize(
-                                  'Monthly on the ' + _weekNumberDay!);
+                                  'Monthly on the ${_weekNumberDay!}');
                               _monthlyWeek();
                             } else if (value == 'Last day of month') {
                               _width = _textSize('Last day of month');

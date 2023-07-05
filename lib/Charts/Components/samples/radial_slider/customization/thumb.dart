@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 import 'package:flutter/material.dart';
 
@@ -45,21 +46,28 @@ class _RadialSliderThumbState extends SampleViewState {
     } else {
       _size = MediaQuery.of(context).size.width / 4.5;
       return Center(
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: <
-              Widget>[
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          _buildSliderWithCircle(),
-          const Center(child: Text('Circle thumb')),
-        ]),
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          _buildSliderWithRectangle(),
-          const Center(child: Text('Rectangle thumb')),
-        ]),
-        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-          _buildSliderWithImage(),
-          const Center(child: Text('Image thumb')),
-        ]),
-      ]));
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildSliderWithCircle(),
+                  const Center(child: Text('Circle thumb')),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildSliderWithRectangle(),
+                  const Center(child: Text('Rectangle thumb')),
+                ]),
+            Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _buildSliderWithImage(),
+                  const Center(child: Text('Image thumb')),
+                ]),
+          ]));
     }
   }
 
@@ -110,7 +118,7 @@ class _RadialSliderThumbState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(_progressValue1.toStringAsFixed(0) + '%'))
+                    widget: Text('${_progressValue1.toStringAsFixed(0)}%'))
               ]),
         ]));
   }
@@ -162,7 +170,7 @@ class _RadialSliderThumbState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(_progressValue2.toStringAsFixed(0) + '%'))
+                    widget: Text('${_progressValue2.toStringAsFixed(0)}%'))
               ]),
         ]));
   }
@@ -211,7 +219,7 @@ class _RadialSliderThumbState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(_progressValue3.toStringAsFixed(0) + '%'))
+                    widget: Text('${_progressValue3.toStringAsFixed(0)}%'))
               ]),
         ]));
   }

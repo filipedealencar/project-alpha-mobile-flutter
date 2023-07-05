@@ -1,4 +1,6 @@
 ///Dart imports
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:math';
 
 ///Package imports
@@ -566,7 +568,7 @@ Widget scheduleViewBuilder(
   return Stack(
     children: <Widget>[
       Image(
-          image: ExactAssetImage('images/' + monthName + '.png'),
+          image: ExactAssetImage('images/$monthName.png'),
           fit: BoxFit.cover,
           width: details.bounds.width,
           height: details.bounds.height),
@@ -576,7 +578,7 @@ Widget scheduleViewBuilder(
         top: 20,
         bottom: 0,
         child: Text(
-          monthName + ' ' + details.date.year.toString(),
+          '$monthName ${details.date.year}',
           style: const TextStyle(fontSize: 18),
         ),
       )

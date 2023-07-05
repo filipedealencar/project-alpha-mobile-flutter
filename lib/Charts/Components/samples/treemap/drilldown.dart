@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 import 'dart:math' show pow;
 
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -1646,9 +1647,7 @@ class _TreemapDrilldownSampleState extends SampleViewState
           child: Padding(
             padding: const EdgeInsets.all(4),
             child: Text(
-              'Population : ' +
-                  (tile.weight / pow(10, 6)).toStringAsFixed(2) +
-                  'B',
+              'Population : ${(tile.weight / pow(10, 6)).toStringAsFixed(2)}B',
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: color,
@@ -1729,14 +1728,8 @@ class _TreemapDrilldownSampleState extends SampleViewState
                     ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '\n' +
-                        ((_levels.indexOf(tile.level) == 1
-                                    ? tile.weight
-                                    : _worldPopulationDetails[tile.indices[0]]
-                                        .populationInThousands) /
-                                pow(10, 3))
-                            .toStringAsFixed(2) +
-                        'M',
+                    text:
+                        '\n${((_levels.indexOf(tile.level) == 1 ? tile.weight : _worldPopulationDetails[tile.indices[0]].populationInThousands) / pow(10, 3)).toStringAsFixed(2)}M',
                   ),
                 ],
               ),

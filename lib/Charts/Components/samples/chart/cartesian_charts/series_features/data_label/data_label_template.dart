@@ -1,4 +1,4 @@
-/// Package imports
+// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 
 /// Chart import
@@ -112,7 +112,7 @@ class _DataLabelTemplateState extends SampleViewState {
                     SizedBox(
                       height: 15,
                       child: Text(
-                        data.y.toString() + '%',
+                        '${data.y}%',
                         style: const TextStyle(
                           fontSize: 10,
                         ),

@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -427,11 +428,7 @@ class _MapRangeColorMappingPageState extends SampleViewState {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          _worldPopulationDensity[index].countryName +
-                              ' : ' +
-                              _numberFormat.format(
-                                  _worldPopulationDensity[index].density) +
-                              ' per sq. km.',
+                          '${_worldPopulationDensity[index].countryName} : ${_numberFormat.format(_worldPopulationDensity[index].density)} per sq. km.',
                           style: Theme.of(context)
                               .textTheme
                               .bodySmall!

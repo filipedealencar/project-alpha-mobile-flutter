@@ -1,4 +1,6 @@
 ///Dart imports
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 import 'dart:math';
 
 ///Package imports
@@ -370,8 +372,7 @@ class _CustomizationCalendarState extends SampleViewState {
                 Padding(
                     padding: const EdgeInsets.symmetric(vertical: 5),
                     child: Image(
-                        image:
-                            ExactAssetImage('images/' + meeting.image + '.png'),
+                        image: ExactAssetImage('images/${meeting.image}.png'),
                         fit: BoxFit.contain,
                         width: details.bounds.width,
                         height: 60)),
@@ -541,9 +542,7 @@ class _CustomizationCalendarState extends SampleViewState {
                       ],
                     ),
                     Text(
-                      DateFormat(format).format(meeting.from) +
-                          ' - ' +
-                          DateFormat(format).format(meeting.to),
+                      '${DateFormat(format).format(meeting.from)} - ${DateFormat(format).format(meeting.to)}',
                       style: TextStyle(
                         color: textColor.withOpacity(0.6),
                         fontFamily: 'Roboto',

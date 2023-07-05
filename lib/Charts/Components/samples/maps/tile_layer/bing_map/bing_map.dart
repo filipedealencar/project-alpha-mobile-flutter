@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -249,22 +250,19 @@ class _BingMapState extends SampleViewState {
       /// Road view
       case 0:
         _bingURL =
-            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/RoadOnDemand?output=json&uriScheme=https&include=ImageryProviders&key=' +
-                _bingKey;
+            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/RoadOnDemand?output=json&uriScheme=https&include=ImageryProviders&key=$_bingKey';
         break;
 
       /// Aerial view
       case 1:
         _bingURL =
-            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/Aerial?output=json&uriScheme=https&include=ImageryProviders&key=' +
-                _bingKey;
+            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/Aerial?output=json&uriScheme=https&include=ImageryProviders&key=$_bingKey';
         break;
       case 2:
 
         /// Aerial view with labels
         _bingURL =
-            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/AerialWithLabels?output=json&uriScheme=https&include=ImageryProviders&key=' +
-                _bingKey;
+            'https://dev.virtualearth.net/REST/V1/Imagery/Metadata/AerialWithLabels?output=json&uriScheme=https&include=ImageryProviders&key=$_bingKey';
         break;
     }
   }

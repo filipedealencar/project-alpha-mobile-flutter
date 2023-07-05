@@ -1,5 +1,7 @@
 // import 'dart:async';
 
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 /// Package import
 import 'package:flutter/material.dart';
 

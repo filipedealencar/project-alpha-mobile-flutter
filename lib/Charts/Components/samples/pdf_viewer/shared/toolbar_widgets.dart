@@ -10,7 +10,7 @@ import 'helper.dart';
 class FileExplorer extends StatefulWidget {
   /// Creates a File Explorer
   const FileExplorer(
-      {this.brightness, this.onDocumentTap, this.isRtlTab = false});
+      {super.key, this.brightness, this.onDocumentTap, this.isRtlTab = false});
 
   /// Brightness theme for the file explorer.
   final Brightness? brightness;

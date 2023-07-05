@@ -1,4 +1,6 @@
 /// dart imports
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:io' show Platform;
 
 /// Package imports
@@ -159,20 +161,20 @@ List<TextSpan> getTextSpan(String description, SampleModel model) {
         word = value[i];
       }
       if (overallText != null) {
-        overallText = overallText + ' ' + word;
+        overallText = '$overallText $word';
       } else {
         overallText = word;
       }
 
       if (highlightText != null) {
-        highlightText = highlightText + ' ' + word;
+        highlightText = '$highlightText $word';
       } else {
         highlightText = word;
       }
     } else if (!value[i].contains('<highlight>') &&
         !value[i].contains('<endHighlight>')) {
       if (overallText != null) {
-        overallText = overallText + ' ' + value[i];
+        overallText = '$overallText ${value[i]}';
       } else {
         overallText = value[i];
       }
@@ -231,7 +233,7 @@ List<TextSpan> getTextSpan(String description, SampleModel model) {
           )));
     } else {
       textSpans.add(TextSpan(
-        text: i == 0 ? list[i] : ' ' + list[i],
+        text: i == 0 ? list[i] : ' ${list[i]}',
         style: model.isWebFullView
             ? TextStyle(
                 color: model.textColor,

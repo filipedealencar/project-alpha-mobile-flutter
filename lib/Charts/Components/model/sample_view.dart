@@ -1,4 +1,6 @@
 /// Package import
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:syncfusion_localizations/syncfusion_localizations.dart';
@@ -104,9 +106,8 @@ class LocalizationSampleViewState<T extends LocalizationSampleView>
                       localeString =
                           (localeString == 'ar_AE') ? 'Arabic' : 'English';
                     } else {
-                      localeString = localeString.substring(0, 2) +
-                          '-' +
-                          localeString.substring(3, 5);
+                      localeString =
+                          '${localeString.substring(0, 2)}-${localeString.substring(3, 5)}';
                     }
 
                     return DropdownMenuItem<Locale>(

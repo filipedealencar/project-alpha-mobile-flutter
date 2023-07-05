@@ -1,5 +1,5 @@
 /// Package imports
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, unnecessary_null_comparison, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 

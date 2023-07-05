@@ -307,7 +307,7 @@ class EmployeeDataGridSource extends DataGridSource {
                   backgroundColor:
                       progressValue < 50 ? Colors.red[100] : Colors.green[100],
                 )),
-            Text(' ' + (progressValue.toString() + '%')),
+            Text(' $progressValue%'),
           ],
         ),
       );
@@ -497,9 +497,7 @@ class EmployeeDataGridSource extends DataGridSource {
       employeeData.add(Employee(
           _employeeNames[i],
           _designations[_random.nextInt(_designations.length - 1)],
-          _employeeNames[i].toLowerCase() +
-              '@' +
-              _mails[_random.nextInt(_mails.length - 1)],
+          '${_employeeNames[i].toLowerCase()}@${_mails[_random.nextInt(_mails.length - 1)]}',
           _locations[_random.nextInt(_locations.length - 1)],
           _status[_random.nextInt(_status.length)],
           _trusts[_random.nextInt(_trusts.length - 1)],

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -25,12 +27,14 @@ class Box extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 68, 68, 63),
-        body: Transform.translate(
-          offset: const Offset(0, -50),
-          child: Center(
-              child: ListView.builder(
+      home:
+          // Scaffold(
+          // backgroundColor: Color.fromARGB(255, 68, 68, 63),
+          // body:
+          Transform.translate(
+        offset: const Offset(0, -50),
+        child: Center(
+          child: ListView.builder(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             itemCount: options.length,
@@ -98,9 +102,10 @@ class Box extends StatelessWidget {
                     )
                   ]);
             },
-          )),
+          ),
         ),
       ),
+      // ),
     );
   }
 }

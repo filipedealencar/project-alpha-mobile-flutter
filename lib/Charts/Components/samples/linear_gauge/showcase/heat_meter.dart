@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 // Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class _HeatMeterState extends SampleViewState {
         minorTicksPerInterval: 0,
         animateAxis: true,
         labelFormatterCallback: (String value) {
-          return value + '°c';
+          return '$value°c';
         },
         axisTrackStyle: const LinearAxisTrackStyle(thickness: 1),
         barPointers: <LinearBarPointer>[
@@ -72,7 +73,7 @@ class _HeatMeterState extends SampleViewState {
                   height: 45,
                   child: Center(
                       child: Text(
-                    _widgetPointerWithGradientValue.toStringAsFixed(0) + '°C',
+                    '${_widgetPointerWithGradientValue.toStringAsFixed(0)}°C',
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 14,

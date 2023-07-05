@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -703,10 +704,7 @@ class _MapSelectionPageState extends SampleViewState {
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white)),
                                 Text(
-                                    _stateWiseElectionResult[index]
-                                            .percentage
-                                            .toString() +
-                                        '%',
+                                    '${_stateWiseElectionResult[index].percentage}%',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium!

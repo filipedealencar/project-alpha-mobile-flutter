@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Package import
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -110,11 +111,10 @@ class _OverfilledRadialBarState extends SampleViewState {
             symbol: '',
           );
           // ignore: cast_nullable_to_non_nullable
-          args.text = chartData![args.pointIndex as int].text +
-              ' : ' +
-              numberFormat
+          args.text =
+              '${chartData![args.pointIndex as int].text} : ${numberFormat
                   // ignore: cast_nullable_to_non_nullable
-                  .format(chartData![args.pointIndex as int].y);
+                  .format(chartData![args.pointIndex as int].y)}';
         });
   }
 

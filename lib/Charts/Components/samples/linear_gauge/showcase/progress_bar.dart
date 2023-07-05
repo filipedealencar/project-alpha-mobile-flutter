@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -75,7 +76,7 @@ class _ProgressBarState extends SampleViewState {
           child: Padding(
               padding: const EdgeInsets.all(30),
               child: Text(
-                progressvalue.toStringAsFixed(2) + '%',
+                '${progressvalue.toStringAsFixed(2)}%',
                 style: const TextStyle(fontSize: 14, color: Color(0xffFFFFFF)),
               ))),
     ]);

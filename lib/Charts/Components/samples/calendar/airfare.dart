@@ -1,4 +1,6 @@
 ///Dart imports
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 import 'dart:math';
 
 ///Package imports
@@ -109,8 +111,7 @@ class _AirFareCalendarCalendarState extends SampleViewState {
       }
       final String fare = _fares[i % _fares.length];
       final Color color = _getAirPlaneColor(id);
-      _airFareDataCollection
-          .add(AirFare(fare, color, 'Airways ' + id.toString()));
+      _airFareDataCollection.add(AirFare(fare, color, 'Airways $id'));
     }
   }
 

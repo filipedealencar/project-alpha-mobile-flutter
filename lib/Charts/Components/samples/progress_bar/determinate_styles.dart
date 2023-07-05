@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Dart imports
 import 'dart:async';
 
@@ -134,7 +135,7 @@ class _ProgressBarDeterminateStyleState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.5,
-                    widget: Text(progressValue.toStringAsFixed(0) + '%',
+                    widget: Text('${progressValue.toStringAsFixed(0)}%',
                         style: const TextStyle(
                             color: Colors.white, fontWeight: FontWeight.bold)))
               ])
@@ -205,7 +206,7 @@ class _ProgressBarDeterminateStyleState extends SampleViewState {
               annotations: <GaugeAnnotation>[
                 GaugeAnnotation(
                     positionFactor: 0.1,
-                    widget: Text(progressValue.toStringAsFixed(0) + '%'))
+                    widget: Text('${progressValue.toStringAsFixed(0)}%'))
               ]),
         ]));
   }

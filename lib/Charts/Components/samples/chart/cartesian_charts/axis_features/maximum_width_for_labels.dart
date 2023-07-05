@@ -1,4 +1,6 @@
 /// Package imports
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:flutter/material.dart';
 
 /// Chart import
@@ -136,7 +138,7 @@ class ChartMaximumLabelWidthState extends SampleViewState {
       title: ChartTitle(text: isCardView ? '' : "World's tallest buildings"),
       plotAreaBorderWidth: 0,
       onDataLabelRender: (DataLabelRenderArgs args) {
-        args.text = args.dataPoints[args.pointIndex].y.toString() + ' m';
+        args.text = '${args.dataPoints[args.pointIndex].y} m';
       },
       onTooltipRender: (TooltipArgs args) {
         args.text = args.dataPoints![args.pointIndex!.toInt()].x.toString() +

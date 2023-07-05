@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -179,7 +180,7 @@ class _RadialRangeSliderExampleState extends SampleViewState {
       final int firstMarkerValue =
           (_firstMarkerValue - _secondMarkerValue).abs().toInt();
       final String hourValue = '$firstMarkerValue';
-      _annotationValue = hourValue.length == 1 ? '0' + hourValue : hourValue;
+      _annotationValue = hourValue.length == 1 ? '0$hourValue' : hourValue;
       _calculateMinutes(firstMarkerValue);
     });
   }
@@ -209,7 +210,7 @@ class _RadialRangeSliderExampleState extends SampleViewState {
       final int secondMarkerValue =
           (_firstMarkerValue - _secondMarkerValue).abs().toInt();
       final String hourValue = '$secondMarkerValue';
-      _annotationValue = hourValue.length == 1 ? '0' + hourValue : hourValue;
+      _annotationValue = hourValue.length == 1 ? '0$hourValue' : hourValue;
       _calculateMinutes(secondMarkerValue);
     });
   }
@@ -222,7 +223,7 @@ class _RadialRangeSliderExampleState extends SampleViewState {
     double currentMinutes = double.parse(minList[1]);
     currentMinutes = currentMinutes > 60 ? currentMinutes - 60 : currentMinutes;
     final String actualValue = currentMinutes.toInt().toString();
-    _minutesValue = actualValue.length == 1 ? '0' + actualValue : actualValue;
+    _minutesValue = actualValue.length == 1 ? '0$actualValue' : actualValue;
   }
 
   double _borderWidth = 5;

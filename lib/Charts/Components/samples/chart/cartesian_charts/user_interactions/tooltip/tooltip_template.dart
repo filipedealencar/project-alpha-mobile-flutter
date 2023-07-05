@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Package imports
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,7 @@ class _TooltipTemplateState extends SampleViewState {
                       child: Image.asset(_getImageTemplate(pointIndex)),
                     ),
                     Text(
-                      data.y.toString() + '%',
+                      '${data.y}%',
                       style: const TextStyle(fontSize: 12, color: Colors.black),
                       textScaleFactor: 1.0,
                     ),

@@ -1,4 +1,6 @@
 /// Flutter package imports
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 /// Barcode imports
@@ -80,9 +82,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                     ),
                   )),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Codabar',
@@ -123,9 +125,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                     ),
                   )),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Code39',
@@ -168,9 +170,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Code39 Extended',
@@ -213,9 +215,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Code93',
@@ -257,9 +259,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('UPC-A',
@@ -301,9 +303,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                     )),
                   )),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('UPC-E',
@@ -345,9 +347,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('EAN-8',
@@ -387,9 +389,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         symbology: EAN13(module: 1),
                       ),
                     ))),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('EAN-13',
@@ -430,9 +432,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(25, 10, 1, 1),
                   child: Text('Code128',
@@ -472,9 +474,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Code128A',
@@ -515,9 +517,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                     )),
                   )),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                   child: Text('Code128B',
@@ -558,9 +560,9 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
+              children: <Widget>[
                 Padding(
                   padding: EdgeInsets.fromLTRB(25, 10, 1, 1),
                   child: Text('Code128C',
@@ -605,10 +607,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 ),
               )),
             ),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Codabar',
@@ -646,10 +648,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 ),
               )),
             ),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code39',
@@ -688,10 +690,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: Code39Extended(),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code39 Extended',
@@ -730,10 +732,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code93',
@@ -773,10 +775,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                         ),
                       ))),
             ),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('UPC-A',
@@ -813,10 +815,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                     symbology: UPCE(),
                   )),
             )),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('UPC-E',
@@ -853,10 +855,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: EAN8(),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('EAN-8',
@@ -894,10 +896,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: EAN13(module: 1),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('EAN-13',
@@ -934,10 +936,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: Code128(),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code128',
@@ -974,10 +976,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: Code128A(),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code128A',
@@ -1016,10 +1018,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 )),
               )),
             ),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code128B',
@@ -1056,10 +1058,10 @@ class _OneDimensionalBarcodesState extends SampleViewState {
                 symbology: Code128C(),
               ),
             ))),
-            Expanded(
+            const Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.fromLTRB(15, 10, 1, 1),
                     child: Text('Code128C',

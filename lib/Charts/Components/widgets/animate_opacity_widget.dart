@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///flutter package import
 import 'package:flutter/material.dart';
 
@@ -5,7 +6,8 @@ import 'package:flutter/material.dart';
 class AnimateOpacityWidget extends StatefulWidget {
   /// Holds custom opacity widget information
   // ignore: tighten_type_of_initializing_formals
-  const AnimateOpacityWidget({this.opacity, this.child, this.controller})
+  const AnimateOpacityWidget(
+      {super.key, this.opacity, this.child, this.controller})
       : assert(opacity != null),
         assert(child != null);
 

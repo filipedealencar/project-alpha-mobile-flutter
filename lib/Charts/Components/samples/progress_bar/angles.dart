@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Dart imports
 import 'dart:async';
 
@@ -122,7 +123,7 @@ class _ProgressBarAnglesState extends SampleViewState {
                   animationType: AnimationType.linear)
             ],
             annotations: <GaugeAnnotation>[
-              GaugeAnnotation(widget: Text(_value.toStringAsFixed(0) + '%'))
+              GaugeAnnotation(widget: Text('${_value.toStringAsFixed(0)}%'))
             ])
       ]),
     );
@@ -155,7 +156,7 @@ class _ProgressBarAnglesState extends SampleViewState {
                   animationType: AnimationType.linear)
             ],
             annotations: <GaugeAnnotation>[
-              GaugeAnnotation(widget: Text(_value.toStringAsFixed(0) + '%'))
+              GaugeAnnotation(widget: Text('${_value.toStringAsFixed(0)}%'))
             ])
       ]),
     ));
@@ -188,7 +189,7 @@ class _ProgressBarAnglesState extends SampleViewState {
                   animationType: AnimationType.linear)
             ],
             annotations: <GaugeAnnotation>[
-              GaugeAnnotation(widget: Text(_value.toStringAsFixed(0) + '%'))
+              GaugeAnnotation(widget: Text('${_value.toStringAsFixed(0)}%'))
             ])
       ]),
     ));
@@ -222,7 +223,7 @@ class _ProgressBarAnglesState extends SampleViewState {
                   animationType: AnimationType.linear)
             ],
             annotations: <GaugeAnnotation>[
-              GaugeAnnotation(widget: Text(_value.toStringAsFixed(0) + '%'))
+              GaugeAnnotation(widget: Text('${_value.toStringAsFixed(0)}%'))
             ])
       ]),
     ));

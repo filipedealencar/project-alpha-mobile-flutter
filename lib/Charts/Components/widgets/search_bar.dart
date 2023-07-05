@@ -1,4 +1,6 @@
 ///Dart import
+// ignore_for_file: unnecessary_null_comparison, overridden_fields
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -9,10 +11,10 @@ import '../model/model.dart';
 
 /// Searchbar widget for searching particular sample
 /// by typing the sample's title in the text editor present in the [SearchBar]
-class SearchBar extends StatefulWidget {
+class ChartSearchBar extends StatefulWidget {
   /// Holds the search bar widet
   // ignore: tighten_type_of_initializing_formals
-  const SearchBar({Key? key, this.sampleListModel})
+  const ChartSearchBar({Key? key, this.sampleListModel})
       : assert(sampleListModel != null),
         super(key: key);
 
@@ -193,7 +195,7 @@ class SearchBarState extends State<SearchBar> with WidgetsBindingObserver {
       final List<SubItem> dummySampleData = <SubItem>[];
       for (int i = 0; i < dummySearchSamplesList.length; i++) {
         final SubItem item = dummySearchSamplesList[i];
-        if ((item.control!.title! + ' - ' + item.title!)
+        if (('${item.control!.title!} - ${item.title!}')
             .toLowerCase()
             .contains(query.toLowerCase())) {
           dummySampleData.add(item);
@@ -398,33 +400,33 @@ class SearchBarState extends State<SearchBar> with WidgetsBindingObserver {
                                             child: RichText(
                                               overflow: TextOverflow.ellipsis,
                                               maxLines: 1,
-                                              text: TextSpan(children: <
-                                                  InlineSpan>[
-                                                TextSpan(
-                                                  text: sampleListModel!
-                                                      .searchResults[index]
-                                                      .control!
-                                                      .title,
-                                                  style: TextStyle(
-                                                      fontSize: 13,
-                                                      color: sampleListModel!
-                                                          .textColor,
-                                                      fontFamily:
-                                                          'Roboto-Bold'),
-                                                ),
-                                                TextSpan(
-                                                  text: ' - ' +
-                                                      sampleListModel!
+                                              text: TextSpan(
+                                                  children: <InlineSpan>[
+                                                    TextSpan(
+                                                      text: sampleListModel!
                                                           .searchResults[index]
-                                                          .title!,
-                                                  style: TextStyle(
-                                                      fontSize: 13,
-                                                      color: sampleListModel!
-                                                          .textColor,
-                                                      fontFamily:
-                                                          'Roboto-Regular'),
-                                                )
-                                              ]),
+                                                          .control!
+                                                          .title,
+                                                      style: TextStyle(
+                                                          fontSize: 13,
+                                                          color:
+                                                              sampleListModel!
+                                                                  .textColor,
+                                                          fontFamily:
+                                                              'Roboto-Bold'),
+                                                    ),
+                                                    TextSpan(
+                                                      text:
+                                                          ' - ${sampleListModel!.searchResults[index].title!}',
+                                                      style: TextStyle(
+                                                          fontSize: 13,
+                                                          color:
+                                                              sampleListModel!
+                                                                  .textColor,
+                                                          fontFamily:
+                                                              'Roboto-Regular'),
+                                                    )
+                                                  ]),
                                             ),
                                           ),
                                         )),

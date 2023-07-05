@@ -1,6 +1,5 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, unnecessary_null_comparison, library_private_types_in_public_api
 
-import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 ///Package import
@@ -477,7 +476,7 @@ class _GettingStartedSignaturePadState extends SampleViewState {
                         fontSize: _fontSizeRegular, color: _getTextColor()),
                     textAlign: TextAlign.end),
                 const SizedBox(height: 5),
-                Text('Date: ' + formattedTime,
+                Text('Date: $formattedTime',
                     textScaleFactor: 1.0,
                     style: TextStyle(
                         fontSize: _fontSizeRegular, color: _getTextColor()),

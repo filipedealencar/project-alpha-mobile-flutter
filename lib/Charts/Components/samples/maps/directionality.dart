@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -233,11 +234,8 @@ class _MapsWithDirectionalityState extends DirectionalitySampleViewState {
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
-                                        text: '\n€' +
-                                            _stateWiseGRPDetails[index]
-                                                .grp
-                                                .toStringAsFixed(2) +
-                                            'B'),
+                                        text:
+                                            '\n€${_stateWiseGRPDetails[index].grp.toStringAsFixed(2)}B'),
                                   ],
                                 ),
                               ),

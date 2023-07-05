@@ -1,4 +1,6 @@
 /// package imports
+// ignore_for_file: depend_on_referenced_packages, library_private_types_in_public_api, unnecessary_null_comparison, prefer_interpolation_to_compose_strings, overridden_fields
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -61,23 +63,16 @@ class _WebLayoutPageState extends State<WebLayoutPage> {
     category = widget.category!;
     sample = widget.subItem!;
     if (sample.parentIndex != null) {
-      orginText = sample.control!.title! +
-          ' > ' +
-          sample.control!.subItems![sample.parentIndex!].title +
-          ' > ' +
-          sample.control!.subItems![sample.parentIndex!]
-              .subItems[sample.childIndex].title;
+      orginText =
+          '${sample.control!.title!}> ${sample.control!.subItems![sample.parentIndex!].title} > ${sample.control!.subItems![sample.parentIndex!].subItems[sample.childIndex].title}';
     } else {
       if (sample.childIndex != null &&
           (widget.subItem!.control!.subItems![sample.childIndex!]! as SubItem)
                   .subItems!
                   .length >
               1) {
-        orginText = sample.control!.title! +
-            ' > ' +
-            widget.subItem!.control!.subItems![sample.childIndex!].title +
-            ' > ' +
-            sample.title!;
+        orginText =
+            '${sample.control!.title! + ' > ' + widget.subItem!.control!.subItems![sample.childIndex!].title} > ${sample.title!}';
       } else {
         orginText = sample.control!.title! + ' > ' + sample.title!;
       }
@@ -204,7 +199,7 @@ class _WebLayoutPageState extends State<WebLayoutPage> {
                             padding: const EdgeInsets.only(right: 20),
                             width: MediaQuery.of(context).size.width * 0.215,
                             height: MediaQuery.of(context).size.height * 0.0445,
-                            child: SearchBar(
+                            child: ChartSearchBar(
                               sampleListModel: model,
                             ))),
 
@@ -1140,8 +1135,7 @@ class SampleOutputContainerState extends State<_SampleOutputContainer> {
                                                                         BoxDecoration(
                                                                             gradient:
                                                                                 LinearGradient(
-                                                                      colors: <
-                                                                          Color>[
+                                                                      colors: <Color>[
                                                                         model
                                                                             .webInputColor
                                                                             .withOpacity(0.21),
@@ -1149,8 +1143,7 @@ class SampleOutputContainerState extends State<_SampleOutputContainer> {
                                                                             .webInputColor
                                                                             .withOpacity(1.0)
                                                                       ],
-                                                                      stops: const <
-                                                                          double>[
+                                                                      stops: const <double>[
                                                                         0.0,
                                                                         0.7
                                                                       ],
@@ -1222,8 +1215,7 @@ class SampleOutputContainerState extends State<_SampleOutputContainer> {
                                                                         BoxDecoration(
                                                                             gradient:
                                                                                 LinearGradient(
-                                                                      colors: <
-                                                                          Color>[
+                                                                      colors: <Color>[
                                                                         model
                                                                             .webInputColor
                                                                             .withOpacity(1.0),
@@ -1234,8 +1226,7 @@ class SampleOutputContainerState extends State<_SampleOutputContainer> {
                                                                             .webInputColor
                                                                             .withOpacity(0.21),
                                                                       ],
-                                                                      stops: const <
-                                                                          double>[
+                                                                      stops: const <double>[
                                                                         0.0,
                                                                         0.5,
                                                                         0.9
@@ -1634,8 +1625,7 @@ class SampleOutputContainerState extends State<_SampleOutputContainer> {
                                                                       .openEndDrawer();
                                                                 }
                                                               },
-                                                              children: <
-                                                                  Widget>[
+                                                              children: <Widget>[
                                                                 Tooltip(
                                                                   message: MediaQuery.of(context).size.width <=
                                                                               720 ||

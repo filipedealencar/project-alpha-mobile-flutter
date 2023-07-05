@@ -1,17 +1,19 @@
-// ignore_for_file: library_private_types_in_public_api
 /// Package import
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 /// Chart import
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 /// Local imports
-import '../../../../../model/sample_view.dart';
+
+import '../Components/model/sample_view.dart';
 
 ///Renders default column chart sample
 class ColumnDefault extends SampleView {
   ///Renders default column chart sample
-  const ColumnDefault(Key key) : super(key: key);
+  const ColumnDefault({Key? key}) : super(key: key);
 
   @override
   _ColumnDefaultState createState() => _ColumnDefaultState();
@@ -63,6 +65,7 @@ class _ColumnDefaultState extends SampleViewState {
           ChartSampleData(x: 'Egypt', y: 2.017),
           ChartSampleData(x: 'Mongolia', y: 1.683),
         ],
+        color: const Color.fromRGBO(129, 108, 142, 1),
         xValueMapper: (ChartSampleData sales, _) => sales.x as String,
         yValueMapper: (ChartSampleData sales, _) => sales.y,
         dataLabelSettings: const DataLabelSettings(

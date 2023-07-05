@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
@@ -246,7 +247,7 @@ class _TreemapLocalizationPageState extends LocalizationSampleViewState {
                       ),
                       const SizedBox(height: 5.0),
                       Text(
-                        tile.weight.toString() + 'M sq. km',
+                        '${tile.weight}M sq. km',
                         textDirection: TextDirection.ltr,
                         style: themeData.textTheme.bodySmall!.copyWith(
                           color: textColor,

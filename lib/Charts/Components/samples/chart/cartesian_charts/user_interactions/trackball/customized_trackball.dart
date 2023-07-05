@@ -1,4 +1,6 @@
 /// Package imports
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 /// Chart import
@@ -249,7 +251,7 @@ class _TrackballTemplateState extends SampleViewState {
 
   Column getGroupingTemplateWidgets(TrackballDetails trackballDetails) {
     //ignore: prefer_final_locals
-    Column columnWidgets = Column(
+    Column columnWidgets = const Column(
       mainAxisAlignment: MainAxisAlignment.center,
       //ignore: prefer_const_literals_to_create_immutables
       children: <Widget>[],

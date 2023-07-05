@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Packages import
 // ignore_for_file: depend_on_referenced_packages
 

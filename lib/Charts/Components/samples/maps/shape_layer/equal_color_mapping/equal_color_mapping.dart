@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -211,9 +212,7 @@ class _MapEqualColorMappingPageState extends SampleViewState {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    _timeZones[index].countryName +
-                        ' : ' +
-                        _timeZones[index].gmtTime,
+                    '${_timeZones[index].countryName} : ${_timeZones[index].gmtTime}',
                     style: themeData.textTheme.bodySmall!.copyWith(
                       color: isLightTheme
                           ? const Color.fromRGBO(255, 255, 255, 1)

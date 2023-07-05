@@ -3,9 +3,9 @@ import 'dart:io' show Platform;
 
 /// package imports
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// ignore: depend_on_referenced_packages
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:syncfusion_localizations/syncfusion_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,9 +21,10 @@ import 'widgets/search_bar.dart';
 /// Contains the Homepage wrapped with a MaterialApp widget
 class SampleBrowser extends StatefulWidget {
   /// Creates sample browser widget
-  const SampleBrowser();
+  const SampleBrowser({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SampleBrowserState createState() => _SampleBrowserState();
 }
 
@@ -33,7 +34,7 @@ class _SampleBrowserState extends State<SampleBrowser> {
   void initState() {
     _sampleListModel = SampleModel.instance;
     _initializeProperties();
-    _sampleListModel.searchBar = SearchBar(
+    _sampleListModel.searchBar = ChartSearchBar(
         key: GlobalKey<SearchBarState>(), sampleListModel: _sampleListModel);
     super.initState();
   }
@@ -177,9 +178,10 @@ class _SampleBrowserState extends State<SampleBrowser> {
 /// Home page of the sample browser for both mobile and web
 class HomePage extends StatefulWidget {
   /// creates the home page layout
-  const HomePage();
+  const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -330,7 +332,7 @@ class _HomePageState extends State<HomePage> {
                                         ? 5
                                         : 4),
                             height: MediaQuery.of(context).size.height * 0.0445,
-                            child: SearchBar(
+                            child: ChartSearchBar(
                               sampleListModel: model,
                             ),
                           )),
@@ -478,10 +480,10 @@ class _HomePageState extends State<HomePage> {
               controller: controller,
               physics: const ClampingScrollPhysics(),
               slivers: <Widget>[
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const <Widget>[
+                  children: <Widget>[
                     Padding(
                       padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Text('Flutter UI Widgets',
@@ -578,7 +580,7 @@ class _HomePageState extends State<HomePage> {
                               color: model.textColor,
                               letterSpacing: 0.3)),
                       TextSpan(
-                          text: ' - ' + model.sampleList[i].title!,
+                          text: ' - ${model.sampleList[i].title!}',
                           style: TextStyle(
                               fontFamily: 'HeeboMedium',
                               fontWeight: FontWeight.normal,

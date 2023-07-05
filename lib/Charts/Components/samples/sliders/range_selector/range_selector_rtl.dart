@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 // ignore_for_file: depend_on_referenced_packages
 
@@ -214,10 +215,7 @@ class _RangeSelectorRTLState extends SampleViewState {
               child: SizedBox(
                 height: 25,
                 child: Text(
-                  'Average rate   :   ' +
-                      _getAverageInflationRate(rangeController)
-                          .toStringAsFixed(2) +
-                      '%',
+                  'Average rate   :   ${_getAverageInflationRate(rangeController).toStringAsFixed(2)}%',
                   style: const TextStyle(fontSize: 18),
                 ),
               ),

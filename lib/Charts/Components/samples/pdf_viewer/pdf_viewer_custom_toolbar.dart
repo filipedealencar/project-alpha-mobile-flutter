@@ -1,3 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -596,7 +599,7 @@ class _CustomToolbarPdfViewerState extends SampleViewState {
                     });
                   }
                   await Clipboard.setData(
-                      ClipboardData(text: details.selectedText));
+                      ClipboardData(text: details.selectedText as String));
                   setState(() {
                     _canShowToast = true;
                   });

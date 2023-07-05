@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package import
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -143,7 +144,7 @@ class _LocalizationPdfViewerState extends LocalizationSampleViewState {
                 _checkAndCloseContextMenu();
                 _pdfViewerController.clearSelection();
                 await Clipboard.setData(
-                    ClipboardData(text: details.selectedText));
+                    ClipboardData(text: details.selectedText as String));
                 setState(() {
                   _canShowToast = true;
                 });

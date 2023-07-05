@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 import 'dart:convert';
 
@@ -246,7 +247,7 @@ class _ImportAndExportFormDataState extends SampleViewState {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(_fileExtension.toUpperCase() + ' Data'),
+            title: Text('${_fileExtension.toUpperCase()} Data'),
             content: Scrollbar(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(

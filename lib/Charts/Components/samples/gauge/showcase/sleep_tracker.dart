@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -381,30 +382,19 @@ class _SleepTrackerSampleState extends SampleViewState {
       final String hourValue = hour.toString().split('.')[0];
 
       _wakeupTimeAnnotation =
-          ((hour >= 6 && hour < 10) ? '0' + hourValue : hourValue) +
-              ':' +
-              (minutesValue.length == 1
-                  ? hour >= 11
-                      ? '59'
-                      : '0' + minutesValue
-                  : minutesValue) +
-              (_hourValue >= 6 ? ' pm' : ' pm');
+          '${(hour >= 6 && hour < 10) ? '0$hourValue' : hourValue}:${minutesValue.length == 1 ? hour >= 11 ? '59' : '0$minutesValue' : minutesValue}${_hourValue >= 6 ? ' pm' : ' pm'}';
 
-      _wakeupTime = (_hourValue + 6 < 10
-              ? '0' + _hourValue.toString()
-              : _hourValue.toString()) +
-          ':' +
-          (minutesValue.length == 1 ? '0' + minutesValue : minutesValue);
+      _wakeupTime =
+          '${_hourValue + 6 < 10 ? '0$_hourValue' : _hourValue.toString()}:${minutesValue.length == 1 ? '0$minutesValue' : minutesValue}';
 
       final DateFormat dateFormat = DateFormat('dd/MM/yyyy HH:mm');
       final double wakeupValue = double.parse(_wakeupTime.replaceAll(':', '.'));
       final DateTime wakeup = dateFormat
-          .parse('01/01/1970 ' + _wakeupTime)
+          .parse('01/01/1970 $_wakeupTime')
           .add(const Duration(hours: 18))
           .subtract(Duration(minutes: wakeupValue >= 5.30 ? 0 : 30));
-      final DateTime sleep = dateFormat.parse(_bedTime == '09:00 pm'
-          ? '02/01/1970 12:00'
-          : '02/01/1970 ' + _bedTime);
+      final DateTime sleep = dateFormat.parse(
+          _bedTime == '09:00 pm' ? '02/01/1970 12:00' : '02/01/1970 $_bedTime');
       final String sleepDuration = sleep.difference(wakeup).toString();
       wakeTime = value;
       sleepingTime = sleepTime - wakeTime;
@@ -444,28 +434,20 @@ class _SleepTrackerSampleState extends SampleViewState {
       currentMinutes = (currentMinutes * 60) / 100;
       final String minutesValue = currentMinutes.toStringAsFixed(0);
 
-      _bedTimeAnnotation = ((hourValue >= 0 && hourValue <= 6)
-              ? (hourValue + 6).toString()
-              : (hourValue >= 6 && hourValue <= 12)
-                  ? '0' + (hourValue - 6).toString()
-                  : '') +
-          ':' +
-          (minutesValue.length == 1 ? '0' + minutesValue : minutesValue) +
-          (value >= 6 ? ' am' : ' pm');
+      _bedTimeAnnotation =
+          '${(hourValue >= 0 && hourValue <= 6) ? (hourValue + 6).toString() : (hourValue >= 6 && hourValue <= 12) ? '0${hourValue - 6}' : ''}:${minutesValue.length == 1 ? '0$minutesValue' : minutesValue}${value >= 6 ? ' am' : ' pm'}';
 
       _bedTime =
-          (hourValue < 10 ? '0' + hourValue.toString() : hourValue.toString()) +
-              ':' +
-              (minutesValue.length == 1 ? '0' + minutesValue : minutesValue);
+          '${hourValue < 10 ? '0$hourValue' : hourValue.toString()}:${minutesValue.length == 1 ? '0$minutesValue' : minutesValue}';
 
       final DateFormat dateFormat = DateFormat('dd/MM/yyyy HH:mm');
       final DateTime wakeup = dateFormat
           .parse(_wakeupTime == '06:00 am'
               ? '01/01/1970 03:00'
-              : '01/01/1970 ' + _wakeupTime)
+              : '01/01/1970 $_wakeupTime')
           .subtract(const Duration(hours: 6))
           .subtract(const Duration(minutes: 30));
-      final DateTime sleep = dateFormat.parse('02/01/1970 ' + _bedTime);
+      final DateTime sleep = dateFormat.parse('02/01/1970 $_bedTime');
       final String sleepDuration = sleep.difference(wakeup).toString();
       sleepTime = bedTimeValue;
       sleepingTime = sleepTime - wakeTime;

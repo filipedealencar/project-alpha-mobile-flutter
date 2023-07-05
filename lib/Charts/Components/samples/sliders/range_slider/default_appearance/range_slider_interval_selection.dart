@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///flutter package import
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -104,7 +105,7 @@ class _RangeSliderIntervalSelectionPageState extends SampleViewState {
             _yearRangeSlider(),
             columnSpacing40,
             columnSpacing40,
-            Row(children: const <Widget>[
+            const Row(children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(left: 15),
                 child: Icon(Icons.lightbulb_outline,

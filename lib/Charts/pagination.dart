@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -66,38 +68,38 @@ class _PaginationState extends SampleViewState {
     _days = const <String>['Fri', 'Sat', 'Sun', 'Mon', 'Tue'];
     _minValues = const <double>[0, 6, 12, 18, 24];
     _maxValues = const <double>[5, 11, 17, 23, 29];
-    _degrees = const <int>[25, 25, 24, 19, 18];
+    _degrees = const <int>[250, 25, 24, 19, 18];
     chartData = <ChartSampleData>[
-      ChartSampleData(xValue: '0', x: '1 am', y: 2),
-      ChartSampleData(xValue: '1', x: '4 am', y: 6),
-      ChartSampleData(xValue: '2', x: '7 am', y: 3),
-      ChartSampleData(xValue: '3', x: '10 am', y: 10),
-      ChartSampleData(xValue: '4', x: '1 pm', y: 61),
-      ChartSampleData(xValue: '5', x: '4 pm', y: 84),
-      ChartSampleData(xValue: '6', x: '1 am', y: 69),
-      ChartSampleData(xValue: '7', x: '4 am', y: 50),
-      ChartSampleData(xValue: '8', x: '7 am', y: 20),
-      ChartSampleData(xValue: '9', x: '10 am', y: 21),
-      ChartSampleData(xValue: '10', x: '1 pm', y: 24),
-      ChartSampleData(xValue: '11', x: '4 pm', y: 24),
-      ChartSampleData(xValue: '12', x: '1 am', y: 21),
-      ChartSampleData(xValue: '13', x: '4 am', y: 21),
-      ChartSampleData(xValue: '14', x: '7 am', y: 21),
-      ChartSampleData(xValue: '15', x: '10 am', y: 22),
-      ChartSampleData(xValue: '16', x: '1 pm', y: 23),
-      ChartSampleData(xValue: '17', x: '4 pm', y: 24),
-      ChartSampleData(xValue: '18', x: '1 am', y: 20),
-      ChartSampleData(xValue: '19', x: '4 am', y: 19),
-      ChartSampleData(xValue: '20', x: '7 am', y: 19),
-      ChartSampleData(xValue: '21', x: '10 am', y: 18),
-      ChartSampleData(xValue: '22', x: '1 pm', y: 19),
-      ChartSampleData(xValue: '23', x: '4 pm', y: 19),
-      ChartSampleData(xValue: '24', x: '1 am', y: 16),
-      ChartSampleData(xValue: '25', x: '4 am', y: 15),
-      ChartSampleData(xValue: '26', x: '7 am', y: 14),
-      ChartSampleData(xValue: '27', x: '10 am', y: 15),
-      ChartSampleData(xValue: '28', x: '1 pm', y: 16),
-      ChartSampleData(xValue: '29', x: '4 pm', y: 18),
+      ChartSampleData(xValue: '0', x: '1 am', y: 2916),
+      ChartSampleData(xValue: '1', x: '4 am', y: 1516),
+      ChartSampleData(xValue: '2', x: '7 am', y: 2916),
+      ChartSampleData(xValue: '3', x: '10 am', y: 2916),
+      ChartSampleData(xValue: '4', x: '1 pm', y: 2916),
+      ChartSampleData(xValue: '5', x: '4 pm', y: 2916),
+      ChartSampleData(xValue: '6', x: '1 am', y: 2916),
+      ChartSampleData(xValue: '7', x: '4 am', y: 2916),
+      ChartSampleData(xValue: '8', x: '7 am', y: 2916),
+      ChartSampleData(xValue: '9', x: '10 am', y: 2916),
+      ChartSampleData(xValue: '10', x: '1 pm', y: 2916),
+      ChartSampleData(xValue: '11', x: '4 pm', y: 2916),
+      ChartSampleData(xValue: '12', x: '1 am', y: 2916),
+      ChartSampleData(xValue: '13', x: '4 am', y: 2916),
+      ChartSampleData(xValue: '14', x: '7 am', y: 2916),
+      ChartSampleData(xValue: '15', x: '10 am', y: 2916),
+      ChartSampleData(xValue: '16', x: '1 pm', y: 2916),
+      ChartSampleData(xValue: '17', x: '4 pm', y: 2916),
+      ChartSampleData(xValue: '18', x: '1 am', y: 2916),
+      ChartSampleData(xValue: '19', x: '4 am', y: 2916),
+      ChartSampleData(xValue: '20', x: '7 am', y: 2916),
+      ChartSampleData(xValue: '21', x: '10 am', y: 2916),
+      ChartSampleData(xValue: '22', x: '1 pm', y: 2916),
+      ChartSampleData(xValue: '23', x: '4 pm', y: 2916),
+      ChartSampleData(xValue: '24', x: '1 am', y: 2916),
+      ChartSampleData(xValue: '25', x: '4 am', y: 2916),
+      ChartSampleData(xValue: '26', x: '7 am', y: 2916),
+      ChartSampleData(xValue: '27', x: '10 am', y: 2916),
+      ChartSampleData(xValue: '28', x: '1 pm', y: 2916),
+      ChartSampleData(xValue: '29', x: '4 pm', y: 2916),
     ];
     super.initState();
   }
@@ -120,7 +122,7 @@ class _PaginationState extends SampleViewState {
     height = MediaQuery.of(context).size.height;
     height = !model.isWebFullView ? height - 46 : height;
     height = model.isWebFullView && !kIsWeb ? height * 0.6 : height * 0.65;
-    _containerHeight = 30;
+    _containerHeight = 10;
     return Center(
         child: Column(children: <Widget>[
       SizedBox(
@@ -208,7 +210,7 @@ class _PaginationState extends SampleViewState {
                   children: <Widget>[
                     Text(_days[i],
                         style: TextStyle(fontSize: 12, color: color)),
-                    _getContainer('images/' + _images[i]),
+                    _getContainer('images/${_images[i]}'),
                     Text(_temperatue[i],
                         style: TextStyle(fontSize: 12, color: color)),
                   ],
@@ -274,7 +276,7 @@ class _PaginationState extends SampleViewState {
       segmentedControlGroupValue = index;
       degree = _degrees[index];
       day = _daysWithTime[index];
-      _imageName = 'images/' + _images[index];
+      _imageName = 'images/${_images[index]}';
     });
   }
 

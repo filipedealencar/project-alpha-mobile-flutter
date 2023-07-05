@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Flutter package imports
 import 'package:flutter/material.dart';
 
@@ -648,31 +649,16 @@ class _MapBubblePageState extends SampleViewState
   String _getCustomizedString(int index) {
     switch (_currentDelegate) {
       case 'FaceBook':
-        return _facebookUsers[index].country +
-            ' : ' +
-            _facebookUsers[index].usersCount.toStringAsFixed(0) +
-            'M users';
+        return '${_facebookUsers[index].country} : ${_facebookUsers[index].usersCount.toStringAsFixed(0)}M users';
       case 'Twitter':
-        return _twitterUsers[index].country +
-            ' : ' +
-            _twitterUsers[index].usersCount.toStringAsFixed(0) +
-            'M users';
+        return '${_twitterUsers[index].country} : ${_twitterUsers[index].usersCount.toStringAsFixed(0)}M users';
       case 'Instagram':
-        return _instagramUsers[index].country +
-            ' : ' +
-            _instagramUsers[index].usersCount.toStringAsFixed(0) +
-            'M users';
+        return '${_instagramUsers[index].country} : ${_instagramUsers[index].usersCount.toStringAsFixed(0)}M users';
 
       case 'SnapChat':
-        return _snapChatUsers[index].country +
-            ' : ' +
-            _snapChatUsers[index].usersCount.toStringAsFixed(0) +
-            'M users';
+        return '${_snapChatUsers[index].country} : ${_snapChatUsers[index].usersCount.toStringAsFixed(0)}M users';
       case 'Tiktok':
-        return _tikTokUsers[index].country +
-            ' : ' +
-            _tikTokUsers[index].usersCount.toStringAsFixed(0) +
-            'M users';
+        return '${_tikTokUsers[index].country} : ${_tikTokUsers[index].usersCount.toStringAsFixed(0)}M users';
       default:
         return '';
     }

@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 ///Package imports
 // ignore_for_file: depend_on_referenced_packages
 
@@ -104,7 +105,7 @@ class _RangeSelectorSelectionPageState extends SampleViewState
       }
     }
     textController.text =
-        'Total data usage : ' + dataUsage.toStringAsFixed(1) + 'GB';
+        'Total data usage : ${dataUsage.toStringAsFixed(1)}GB';
   }
 
   @override

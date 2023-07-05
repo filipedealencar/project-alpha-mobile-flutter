@@ -1,4 +1,6 @@
 ///Package imports
+// ignore_for_file: library_private_types_in_public_api
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -409,7 +411,7 @@ class _ShiftSchedulerState extends SampleViewState {
     for (int i = 0; i < _nameCollection.length; i++) {
       _employeeCollection.add(CalendarResource(
           displayName: _nameCollection[i],
-          id: '000' + i.toString(),
+          id: '000$i',
           color: Color.fromRGBO(
               random.nextInt(255), random.nextInt(255), random.nextInt(255), 1),
           image:

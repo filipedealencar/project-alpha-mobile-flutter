@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Package import
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -38,9 +39,8 @@ class _PieRadiusState extends SampleViewState {
       series: _getRadiusPieSeries(),
       onTooltipRender: (TooltipArgs args) {
         final NumberFormat format = NumberFormat.decimalPattern();
-        args.text = args.dataPoints![args.pointIndex!.toInt()].x.toString() +
-            ' : ' +
-            format.format(args.dataPoints![args.pointIndex!.toInt()].y);
+        args.text =
+            '${args.dataPoints![args.pointIndex!.toInt()].x} : ${format.format(args.dataPoints![args.pointIndex!.toInt()].y)}';
       },
       tooltipBehavior: TooltipBehavior(enable: true),
     );

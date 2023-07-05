@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Package imports
 import 'package:flutter/material.dart';
 
@@ -182,13 +183,11 @@ class _NavigationWithEventsState extends SampleViewState {
       title: ChartTitle(text: isCardView ? '' : "World's tallest buildings"),
       plotAreaBorderWidth: 0,
       onDataLabelRender: (DataLabelRenderArgs args) {
-        args.text = args.dataPoints[args.pointIndex].y.toString() + ' m';
+        args.text = '${args.dataPoints[args.pointIndex].y} m';
       },
       onTooltipRender: (TooltipArgs args) {
-        args.text = args.dataPoints![args.pointIndex!.toInt()].x.toString() +
-            ' : ' +
-            args.dataPoints![args.pointIndex!.toInt()].y.toString() +
-            ' m';
+        args.text =
+            '${args.dataPoints![args.pointIndex!.toInt()].x} : ${args.dataPoints![args.pointIndex!.toInt()].y} m';
       },
       onDataLabelTapped: (DataLabelTapDetails args) {
         _scaffoldKey.currentState?.showSnackBar(SnackBar(

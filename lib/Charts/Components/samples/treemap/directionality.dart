@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
@@ -232,8 +233,7 @@ class _TreemapTextDirectionPageState extends DirectionalitySampleViewState {
                         ),
                         children: <TextSpan>[
                           TextSpan(
-                              text:
-                                  '\n€' + tile.weight.toStringAsFixed(2) + 'B'),
+                              text: '\n€${tile.weight.toStringAsFixed(2)}B'),
                         ],
                       ),
                     ),

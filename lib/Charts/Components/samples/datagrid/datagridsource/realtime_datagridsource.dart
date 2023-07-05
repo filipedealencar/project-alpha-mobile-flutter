@@ -122,7 +122,7 @@ class RealTimeUpdateDataGridSource extends DataGridSource {
                 SizedBox(
                   width: 50,
                   child: Text(
-                    '   ' + stack.toString(),
+                    '   $stack',
                   ),
                 )
               ]

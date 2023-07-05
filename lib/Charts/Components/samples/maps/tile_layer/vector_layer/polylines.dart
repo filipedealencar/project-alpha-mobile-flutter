@@ -1,3 +1,4 @@
+// ignore_for_file: library_private_types_in_public_api
 /// Flutter package imports
 import 'dart:convert';
 
@@ -170,7 +171,7 @@ class _PolylinesSampleState extends SampleViewState
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                    _routes[0].city + ' - ' + _routes[1].city,
+                                    '${_routes[0].city} - ${_routes[1].city}',
                                     style: model.themeData.textTheme.bodySmall!
                                         .copyWith(
                                             color: const Color.fromRGBO(
