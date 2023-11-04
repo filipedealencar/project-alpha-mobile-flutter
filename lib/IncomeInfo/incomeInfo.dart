@@ -15,11 +15,11 @@ Future<void> loadFont() async {
   await rootBundle.load('fonts/montserrat/Montserrat-VariableFont_wght.ttf');
 }
 
-class Header extends StatelessWidget {
+class IncomeInfo extends StatelessWidget {
   final double mainIcome;
   final int? remainingDay;
   final double? extraIncome;
-  const Header(
+  const IncomeInfo(
       {Key? key, required this.mainIcome, this.extraIncome, this.remainingDay})
       : super(key: key);
 
@@ -65,12 +65,13 @@ class Header extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: 'MontSerrat',
                       fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
                       fontSize: 12.0,
                       color: Colors.white,
                     ),
                   ),
                   // WidgetSpan(
-                  //   child: SizedBox(width: widthCards),
+                  //   child: SizedBox(width: widthIncomeInfo),
                   // ),
                   Text(
                     formatCurrency("+", mainIcome),
@@ -78,6 +79,7 @@ class Header extends StatelessWidget {
                       fontSize: 14,
                       fontFamily: 'MontSerrat',
                       fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none,
                       color: Colors.white,
                     ),
                   ),
@@ -97,12 +99,13 @@ class Header extends StatelessWidget {
                             style: TextStyle(
                               fontFamily: 'MontSerrat',
                               fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
                               fontSize: 12.0,
                               color: Colors.white,
                             ),
                           ),
                           // WidgetSpan(
-                          //   child: SizedBox(width: widthCards),
+                          //   child: SizedBox(width: widthIncomeInfo),
                           // ),
                           Text(
                             formatCurrency("+", extraIncome ?? 0),
@@ -110,6 +113,7 @@ class Header extends StatelessWidget {
                               fontSize: 14,
                               fontFamily: 'MontSerrat',
                               fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none,
                               color: Colors.white,
                             ),
                           ),
@@ -125,6 +129,7 @@ class Header extends StatelessWidget {
                   style: const TextStyle(
                     fontFamily: 'MontSerrat',
                     fontWeight: FontWeight.bold,
+                    decoration: TextDecoration.none,
                     fontSize: 24.0,
                     color: Colors.white,
                   ),
@@ -135,6 +140,7 @@ class Header extends StatelessWidget {
                         fontSize: 40,
                         fontFamily: 'MontSerrat',
                         fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.none,
                         color: Colors.white,
                       ),
                     ),
@@ -150,6 +156,7 @@ class Header extends StatelessWidget {
                         style: const TextStyle(
                           fontFamily: 'MontSerrat',
                           fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
                           fontSize: 9.5,
                           color: Colors.white,
                         ),

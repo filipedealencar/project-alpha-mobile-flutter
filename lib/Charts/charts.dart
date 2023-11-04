@@ -60,117 +60,96 @@ class DoughnutDefaultState extends StatelessWidget {
       ).format(currency);
     }
 
-    return Transform.translate(
-      offset: const Offset(0, 0),
-      // child: ConstrainedBox(
-      //   constraints: const BoxConstraints(
-      //     maxHeight: double.infinity,
-      //     maxWidth: double.infinity,
-      //   ),
-      child: Container(
-        margin: const EdgeInsets.only(left: 20, right: 20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(10)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 7,
-              offset: const Offset(0, 3),
+    return Container(
+      margin: const EdgeInsets.only(left: 20, right: 20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
+            alignment: AlignmentDirectional.topStart,
+            child: const Text(
+              'Gastos total',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  color: Color.fromRGBO(96, 152, 255, 1),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: "MontSerrat"),
             ),
-          ],
-        ),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              padding: const EdgeInsets.fromLTRB(20, 20, 0, 0),
-              alignment: AlignmentDirectional.topStart,
-              child: const Text(
-                'Gastos total',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                    color: Color.fromRGBO(96, 152, 255, 1),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w900,
-                    fontFamily: "MontSerrat"),
-              ),
-            ),
-            SfCircularChart(
-              annotations: <CircularChartAnnotation>[
-                CircularChartAnnotation(
-                  widget: Text(
-                    formatCurrency("R\$", newValues),
-                    style: const TextStyle(
-                        color: Color.fromRGBO(0, 0, 0, 1),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                        fontFamily: "MontSerrat"),
-                  ),
-                )
-              ],
-              legend: Legend(
-                  isVisible: false, overflowMode: LegendItemOverflowMode.wrap),
-              series: _getElevationDoughnutSeries(incomesValues),
-            ),
-            ListView.builder(
-                // scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: options.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final option = options[index];
-                  return Wrap(
-                    spacing: 10.0,
-                    runSpacing: 10.0,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            children: [
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                  child: Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: option.color,
-                                    ),
-                                    child: Text(
-                                      option.icon,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+          ),
+          SfCircularChart(
+            annotations: <CircularChartAnnotation>[
+              CircularChartAnnotation(
+                widget: Text(
+                  formatCurrency("R\$", newValues),
+                  style: const TextStyle(
+                      color: Color.fromRGBO(0, 0, 0, 1),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      fontFamily: "MontSerrat"),
+                ),
+              )
+            ],
+            legend: Legend(
+                isVisible: false, overflowMode: LegendItemOverflowMode.wrap),
+            series: _getElevationDoughnutSeries(incomesValues),
+          ),
+          ListView.builder(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              itemCount: options.length,
+              itemBuilder: (BuildContext context, int index) {
+                final option = options[index];
+                return Wrap(
+                  spacing: 10.0,
+                  runSpacing: 10.0,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          children: [
+                            // Align(
+                            //   alignment: Alignment.centerLeft,
+                            //   child: Container(
+                            //     padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                            //     child:
+
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: option.color,
                               ),
-                              Container(
-                                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                child: Text(
-                                  option.title,
-                                  style: const TextStyle(
-                                    fontFamily: 'MontSerrat',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Align(
-                            child: Container(
-                              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                               child: Text(
-                                formatCurrency("R\$", option.value),
+                                option.icon,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                            //   ),
+                            // ),
+                            Container(
+                              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                              child: Text(
+                                option.title,
                                 style: const TextStyle(
                                   fontFamily: 'MontSerrat',
                                   fontWeight: FontWeight.bold,
@@ -179,19 +158,33 @@ class DoughnutDefaultState extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
-                      Container(
-                          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                          child: index != options.length - 1
-                              ? const Divider()
-                              : null),
-                    ],
-                  );
-                })
-          ],
-        ),
+                          ],
+                        ),
+                        Align(
+                          child: Container(
+                            padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                            child: Text(
+                              formatCurrency("R\$", option.value),
+                              style: const TextStyle(
+                                fontFamily: 'MontSerrat',
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Container(
+                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                        child: index != options.length - 1
+                            ? const Divider()
+                            : null),
+                  ],
+                );
+              })
+        ],
       ),
       // ),
     );
